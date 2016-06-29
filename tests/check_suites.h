@@ -4,5 +4,6 @@
 #include <check.h>
 
 Suite *roman_converter_suite();
+Suite *roman_numeral_pair_suite();
 
 #endif //ROMAN_CLIB_CHECK_SUITES_H

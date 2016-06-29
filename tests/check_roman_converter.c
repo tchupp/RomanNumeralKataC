@@ -1,6 +1,8 @@
 #include <check.h>
 #include <roman_converter.h>
 
+#include "check_suites.h"
+
 START_TEST(test_single_letter_values)
     {
         char result[4];

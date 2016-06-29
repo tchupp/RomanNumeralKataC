@@ -1,2 +1,2 @@
 include_directories(.)
-add_library(roman_clib roman_converter.c)
+add_library(roman_clib roman_converter.c roman_numeral_pair.c)
