@@ -19,7 +19,7 @@ void convert_to_roman(unsigned int value, char *result) {
         unsigned int arabic = get_arabic(pairs[i]);
         char *roman = get_roman(pairs[i]);
 
-        if (value >= arabic) {
+        while (value >= arabic) {
             strcpy(result, roman);
             result += strlen(roman);
             value -= arabic;
