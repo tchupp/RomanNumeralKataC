@@ -1,5 +1,5 @@
 #include <check.h>
-#include <roman_calculator.h>
+#include <roman_converter.h>
 
 START_TEST(test_single_letter_values)
     {
@@ -28,11 +28,11 @@ START_TEST(test_single_letter_values)
     }
 END_TEST
 
-Suite *roman_calculator_suite() {
+Suite *roman_converter_suite() {
     Suite *suite;
     TCase *tcase_core;
 
-    suite = suite_create("Roman Calculator");
+    suite = suite_create("Roman Converter");
 
     tcase_core = tcase_create("Core");
 

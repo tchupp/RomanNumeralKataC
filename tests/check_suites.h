@@ -3,6 +3,6 @@
 
 #include <check.h>
 
-Suite *roman_calculator_suite();
+Suite *roman_converter_suite();
 
 #endif //ROMAN_CLIB_CHECK_SUITES_H
