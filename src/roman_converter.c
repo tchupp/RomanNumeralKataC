@@ -1,31 +1,27 @@
-#include <memory.h>
+#include <string.h>
 #include "roman_converter.h"
+#include "roman_numeral_pair.h"
 
-void convertToRoman(unsigned int value, char *result) {
-    switch (value) {
-        case 1:
-            strcpy(result, "I");
-            break;
-        case 5:
-            strcpy(result, "V");
-            break;
-        case 10:
-            strcpy(result, "X");
-            break;
-        case 50:
-            strcpy(result, "L");
-            break;
-        case 100:
-            strcpy(result, "C");
-            break;
-        case 500:
-            strcpy(result, "D");
-            break;
-        case 1000:
-            strcpy(result, "M");
-            break;
-        default:
-            strcpy(result, "");
-            break;
+void convert_to_roman(unsigned int value, char *result) {
+    int num_pairs = 7;
+
+    struct RomanNumeralPair *pairs[num_pairs];
+    pairs[0] = new_rn_pair(1000, "M");
+    pairs[1] = new_rn_pair(500, "D");
+    pairs[2] = new_rn_pair(100, "C");
+    pairs[3] = new_rn_pair(50, "L");
+    pairs[4] = new_rn_pair(10, "X");
+    pairs[5] = new_rn_pair(5, "V");
+    pairs[6] = new_rn_pair(1, "I");
+
+    for (int i = 0; i < num_pairs; i++) {
+        unsigned int arabic = get_arabic(pairs[i]);
+        if (value == arabic) {
+            strcpy(result, get_roman(pairs[i]));
+        }
+    }
+
+    for (int i = 0; i < num_pairs; i++) {
+        free_rn_pair(pairs[i]);
     }
 }

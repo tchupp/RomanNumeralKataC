@@ -5,27 +5,27 @@
 
 START_TEST(test_single_letter_values)
     {
-        char result[4];
+        char result[1];
 
-        convertToRoman(1, result);
+        convert_to_roman(1, result);
         ck_assert_str_eq(result, "I");
 
-        convertToRoman(5, result);
+        convert_to_roman(5, result);
         ck_assert_str_eq(result, "V");
 
-        convertToRoman(10, result);
+        convert_to_roman(10, result);
         ck_assert_str_eq(result, "X");
 
-        convertToRoman(50, result);
+        convert_to_roman(50, result);
         ck_assert_str_eq(result, "L");
 
-        convertToRoman(100, result);
+        convert_to_roman(100, result);
         ck_assert_str_eq(result, "C");
 
-        convertToRoman(500, result);
+        convert_to_roman(500, result);
         ck_assert_str_eq(result, "D");
 
-        convertToRoman(1000, result);
+        convert_to_roman(1000, result);
         ck_assert_str_eq(result, "M");
     }
 END_TEST

@@ -30,6 +30,3 @@ unsigned int get_arabic(RomanNumeralPair *pair) {
 char *get_roman(RomanNumeralPair *pair) {
     return pair->roman;
 }
-
-
-
