@@ -27,6 +27,39 @@ START_TEST(test_lower_values_on_right_for_addition)
     }
 END_TEST
 
+START_TEST(test_lower_values_are_subtracted_instead_of_repeated)
+    {
+        char result[2];
+
+        convert_to_roman(3, result);
+        ck_assert_str_eq(result, "III");
+
+        convert_to_roman(4, result);
+        ck_assert_str_eq(result, "IV");
+
+        convert_to_roman(9, result);
+        ck_assert_str_eq(result, "IX");
+
+        convert_to_roman(38, result);
+        ck_assert_str_eq(result, "XXXVIII");
+
+        convert_to_roman(39, result);
+        ck_assert_str_eq(result, "XXXIX");
+
+        convert_to_roman(40, result);
+        ck_assert_str_eq(result, "XL");
+
+        convert_to_roman(90, result);
+        ck_assert_str_eq(result, "XC");
+
+        convert_to_roman(400, result);
+        ck_assert_str_eq(result, "CD");
+
+        convert_to_roman(900, result);
+        ck_assert_str_eq(result, "CM");
+    }
+END_TEST
+
 START_TEST(test_values_can_repeat)
     {
         char result[2];
@@ -87,6 +120,7 @@ Suite *roman_converter_suite() {
     tcase_core = tcase_create("Core");
 
     tcase_add_test(tcase_core, test_lower_values_on_right_for_addition);
+    tcase_add_test(tcase_core, test_lower_values_are_subtracted_instead_of_repeated);
     tcase_add_test(tcase_core, test_values_can_repeat);
     tcase_add_test(tcase_core, test_single_letter_values);
     suite_add_tcase(suite, tcase_core);

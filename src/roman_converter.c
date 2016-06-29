@@ -4,16 +4,22 @@
 #include "roman_numeral_pair.h"
 
 void convert_to_roman(unsigned int value, char *result) {
-    int num_pairs = 7;
+    int num_pairs = 13;
 
     struct RomanNumeralPair *pairs[num_pairs];
     pairs[0] = new_rn_pair(1000, "M");
-    pairs[1] = new_rn_pair(500, "D");
-    pairs[2] = new_rn_pair(100, "C");
-    pairs[3] = new_rn_pair(50, "L");
-    pairs[4] = new_rn_pair(10, "X");
-    pairs[5] = new_rn_pair(5, "V");
-    pairs[6] = new_rn_pair(1, "I");
+    pairs[1] = new_rn_pair(900, "CM");
+    pairs[2] = new_rn_pair(500, "D");
+    pairs[3] = new_rn_pair(400, "CD");
+    pairs[4] = new_rn_pair(100, "C");
+    pairs[5] = new_rn_pair(90, "XC");
+    pairs[6] = new_rn_pair(50, "L");
+    pairs[7] = new_rn_pair(40, "XL");
+    pairs[8] = new_rn_pair(10, "X");
+    pairs[9] = new_rn_pair(9, "IX");
+    pairs[10] = new_rn_pair(5, "V");
+    pairs[11] = new_rn_pair(4, "IV");
+    pairs[12] = new_rn_pair(1, "I");
 
     for (int i = 0; i < num_pairs; i++) {
         unsigned int arabic = get_arabic(pairs[i]);
