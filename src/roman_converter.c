@@ -25,6 +25,7 @@ void convertToRoman(unsigned int value, char *result) {
             strcpy(result, "M");
             break;
         default:
+            strcpy(result, "");
             break;
     }
 }
