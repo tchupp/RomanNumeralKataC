@@ -1,4 +1,5 @@
 #include <string.h>
+
 #include "roman_converter.h"
 #include "roman_numeral_pair.h"
 
@@ -16,8 +17,12 @@ void convert_to_roman(unsigned int value, char *result) {
 
     for (int i = 0; i < num_pairs; i++) {
         unsigned int arabic = get_arabic(pairs[i]);
-        if (value == arabic) {
-            strcpy(result, get_roman(pairs[i]));
+        char *roman = get_roman(pairs[i]);
+
+        if (value >= arabic) {
+            strcpy(result, roman);
+            result += strlen(roman);
+            value -= arabic;
         }
     }
 

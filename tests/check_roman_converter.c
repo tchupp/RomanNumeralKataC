@@ -3,6 +3,30 @@
 
 #include "check_suites.h"
 
+START_TEST(test_lower_values_on_right_for_addition)
+    {
+        char result[2];
+
+        convert_to_roman(1000, result);
+        ck_assert_str_eq(result, "M");
+
+        convert_to_roman(501, result);
+        ck_assert_str_eq(result, "DI");
+
+        convert_to_roman(105, result);
+        ck_assert_str_eq(result, "CV");
+
+        convert_to_roman(60, result);
+        ck_assert_str_eq(result, "LX");
+
+        convert_to_roman(1011, result);
+        ck_assert_str_eq(result, "MXI");
+
+        convert_to_roman(666, result);
+        ck_assert_str_eq(result, "DCLXVI");
+    }
+END_TEST
+
 START_TEST(test_single_letter_values)
     {
         char result[1];
@@ -38,6 +62,7 @@ Suite *roman_converter_suite() {
 
     tcase_core = tcase_create("Core");
 
+    tcase_add_test(tcase_core, test_lower_values_on_right_for_addition);
     tcase_add_test(tcase_core, test_single_letter_values);
     suite_add_tcase(suite, tcase_core);
 
