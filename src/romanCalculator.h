@@ -1,4 +1,6 @@
 #ifndef ROMANNUMERALKATAC_ROMANCALCULATOR_H
 #define ROMANNUMERALKATAC_ROMANCALCULATOR_H
 
+void convertToRoman(unsigned int value, char *result);
+
 #endif //ROMANNUMERALKATAC_ROMANCALCULATOR_H

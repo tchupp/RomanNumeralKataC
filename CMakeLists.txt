@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
-project(RomanNumeralKataC)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules/")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror")
+project(roman_clib)
 
-set(SOURCE_FILES src/main.c src/romanCalculator.c src/romanCalculator.h)
-add_executable(RomanNumeralKataC ${SOURCE_FILES})
+enable_testing()
 
-set(TEST_FILES  tests/check_romanCalculator.c)
-add_executable(RomanNumeralKataCTest ${TEST_FILES})
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror")
+
+add_subdirectory(src)
+add_subdirectory(tests)
