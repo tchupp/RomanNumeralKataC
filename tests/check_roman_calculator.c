@@ -1,6 +1,5 @@
 #include <check.h>
-#include <stdlib.h>
-#include "../src/romanCalculator.h"
+#include <roman_calculator.h>
 
 START_TEST(test_single_letter_values)
     {
@@ -29,7 +28,7 @@ START_TEST(test_single_letter_values)
     }
 END_TEST
 
-Suite *romanCalculatorSuite() {
+Suite *roman_calculator_suite() {
     Suite *suite;
     TCase *tcase_core;
 
@@ -41,15 +40,4 @@ Suite *romanCalculatorSuite() {
     suite_add_tcase(suite, tcase_core);
 
     return suite;
-}
-
-int main() {
-    Suite *suite = romanCalculatorSuite();
-    SRunner *srunner = srunner_create(suite);
-
-    srunner_run_all(srunner, CK_NORMAL);
-    int num_failed = srunner_ntests_failed(srunner);
-    srunner_free(srunner);
-
-    return (num_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

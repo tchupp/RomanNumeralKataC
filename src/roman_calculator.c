@@ -1,5 +1,5 @@
 #include <memory.h>
-#include "romanCalculator.h"
+#include "roman_calculator.h"
 
 void convertToRoman(unsigned int value, char *result) {
     switch (value) {

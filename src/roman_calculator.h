@@ -1,5 +1,5 @@
-#ifndef ROMANNUMERALKATAC_ROMANCALCULATOR_H
-#define ROMANNUMERALKATAC_ROMANCALCULATOR_H
+#ifndef ROMAN_CLIB_ROMAN_CALCULATOR_H
+#define ROMAN_CLIB_ROMAN_CALCULATOR_H
 
 void convertToRoman(unsigned int value, char *result);
 
