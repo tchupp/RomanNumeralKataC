@@ -1,12 +1,13 @@
+#define ARRAY_LEN(array) (sizeof(array) / sizeof(array[0]))
+
 #include <string.h>
 
 #include "roman_converter.h"
 #include "roman_numeral_pair.h"
 
 void convert_to_roman(unsigned int value, char *result) {
-    int num_pairs = 13;
 
-    struct RomanNumeralPair *pairs[num_pairs];
+    struct RomanNumeralPair *pairs[13];
     pairs[0] = new_rn_pair(1000, "M");
     pairs[1] = new_rn_pair(900, "CM");
     pairs[2] = new_rn_pair(500, "D");
@@ -21,7 +22,7 @@ void convert_to_roman(unsigned int value, char *result) {
     pairs[11] = new_rn_pair(4, "IV");
     pairs[12] = new_rn_pair(1, "I");
 
-    for (int i = 0; i < num_pairs; i++) {
+    for (int i = 0; i < ARRAY_LEN(pairs); i++) {
         unsigned int arabic = get_arabic(pairs[i]);
         char *roman = get_roman(pairs[i]);
 
@@ -32,11 +33,25 @@ void convert_to_roman(unsigned int value, char *result) {
         }
     }
 
-    for (int i = 0; i < num_pairs; i++) {
+    for (int i = 0; i < ARRAY_LEN(pairs); i++) {
         free_rn_pair(pairs[i]);
     }
 }
 
 unsigned int convert_to_arabic(char *value) {
-    return 1000;
+    struct RomanNumeralPair *pairs[7];
+    pairs[0] = new_rn_pair(1000, "M");
+    pairs[1] = new_rn_pair(500, "D");
+    pairs[2] = new_rn_pair(100, "C");
+    pairs[3] = new_rn_pair(50, "L");
+    pairs[4] = new_rn_pair(10, "X");
+    pairs[5] = new_rn_pair(5, "V");
+    pairs[6] = new_rn_pair(1, "I");
+
+    for (int i = 0; i < ARRAY_LEN(pairs); i++) {
+        if (get_roman(pairs[i]) == value) {
+            return get_arabic(pairs[i]);
+        }
+    }
+    return 0;
 }
