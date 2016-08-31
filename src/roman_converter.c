@@ -36,3 +36,7 @@ void convert_to_roman(unsigned int value, char *result) {
         free_rn_pair(pairs[i]);
     }
 }
+
+unsigned int convert_to_arabic(char *value) {
+    return 1000;
+}
