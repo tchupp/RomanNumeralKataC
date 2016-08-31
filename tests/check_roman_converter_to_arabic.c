@@ -30,6 +30,30 @@ START_TEST(test_single_numerals)
     }
 END_TEST
 
+START_TEST(test_double_numerals)
+    {
+        unsigned int result;
+
+        result = convert_to_arabic("CM");
+        ck_assert_int_eq(900, result);
+
+        result = convert_to_arabic("CD");
+        ck_assert_int_eq(400, result);
+
+        result = convert_to_arabic("XC");
+        ck_assert_int_eq(90, result);
+
+        result = convert_to_arabic("XL");
+        ck_assert_int_eq(40, result);
+
+        result = convert_to_arabic("IX");
+        ck_assert_int_eq(9, result);
+
+        result = convert_to_arabic("IV");
+        ck_assert_int_eq(4, result);
+    }
+END_TEST
+
 Suite *roman_converter_to_arabic_suite() {
     Suite *suite;
     TCase *tcase_core;
@@ -39,6 +63,7 @@ Suite *roman_converter_to_arabic_suite() {
     tcase_core = tcase_create("Core");
 
     tcase_add_test(tcase_core, test_single_numerals);
+    tcase_add_test(tcase_core, test_double_numerals);
 
     suite_add_tcase(suite, tcase_core);
 
