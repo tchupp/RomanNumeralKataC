@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/tests/check_suites.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/check_roman_converter.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/check_roman_converter_to_roman.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/check_roman_numeral_pair.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/check_main.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeModules/FindCheck.cmake" isTestSource="false" />

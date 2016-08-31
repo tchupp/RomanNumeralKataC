@@ -111,11 +111,11 @@ START_TEST(test_single_letter_values)
     }
 END_TEST
 
-Suite *roman_converter_suite() {
+Suite *roman_converter_to_roman_suite() {
     Suite *suite;
     TCase *tcase_core;
 
-    suite = suite_create("Roman Converter");
+    suite = suite_create("Roman Converter - To Roman");
 
     tcase_core = tcase_create("Core");
 

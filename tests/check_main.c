@@ -4,7 +4,7 @@
 #include "check_suites.h"
 
 int main() {
-    Suite *suite = roman_converter_suite();
+    Suite *suite = roman_converter_to_roman_suite();
     SRunner *srunner = srunner_create(suite);
 
     srunner_add_suite(srunner, roman_numeral_pair_suite());
