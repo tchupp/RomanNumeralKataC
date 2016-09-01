@@ -56,8 +56,11 @@ unsigned int convert_to_arabic(char *value) {
     pairs[12] = new_rn_pair(1, "I");
 
     for (i = 0; i < ARRAY_LEN(pairs); i++) {
-        if (get_roman(pairs[i]) == value) {
-            return get_arabic(pairs[i]);
+        unsigned int arabic = get_arabic(pairs[i]);
+        char *roman = get_roman(pairs[i]);
+
+        if (strcmp(roman, value) == 0) {
+            return arabic;
         }
 
         free_rn_pair(pairs[i]);
