@@ -18,8 +18,7 @@ tests/test_roman: tests/check_main.c.o
 tests/test_roman: tests/check_roman_converter_to_roman.c.o
 tests/test_roman: tests/check_roman_converter_to_arabic.c.o
 tests/test_roman: tests/check_roman_numeral_pair.c.o
-tests/test_roman: src/libroman_clib.a
-	$(CC) $(C_FLAGS) $^ -o $@ -lcheck
+	$(CC) $(C_FLAGS) $^ -o $@ `pkg-config --libs check` src/libroman_clib.a
 
 tests/build: tests/test_roman
 
