@@ -5,7 +5,7 @@
 
 START_TEST(test_lower_values_on_right_for_addition)
     {
-        char result[2];
+        static char result[0];
 
         convert_to_roman(1000, result);
         ck_assert_str_eq(result, "M");
@@ -29,7 +29,7 @@ END_TEST
 
 START_TEST(test_lower_values_are_subtracted_instead_of_repeated)
     {
-        char result[2];
+        static char result[0];
 
         convert_to_roman(3, result);
         ck_assert_str_eq(result, "III");
@@ -62,7 +62,7 @@ END_TEST
 
 START_TEST(test_values_can_repeat)
     {
-        char result[2];
+        static char result[4];
 
         convert_to_roman(3000, result);
         ck_assert_str_eq(result, "MMM");
@@ -86,7 +86,7 @@ END_TEST
 
 START_TEST(test_single_letter_values)
     {
-        char result[1];
+        static char result[0];
 
         convert_to_roman(1, result);
         ck_assert_str_eq(result, "I");

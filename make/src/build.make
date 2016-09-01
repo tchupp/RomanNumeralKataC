@@ -10,6 +10,7 @@ src/roman_numeral_pair.c.o: ../src/roman_numeral_pair.c
 
 src/libroman_clib.a: src/roman_converter.c.o
 src/libroman_clib.a: src/roman_numeral_pair.c.o
+	rm -f $@
 	ar qc $@ $^
 
 src/build: src/libroman_clib.a
