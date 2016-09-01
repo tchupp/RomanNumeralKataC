@@ -1,0 +1,1 @@
+C_FLAGS =  -Wall -Werror
