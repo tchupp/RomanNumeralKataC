@@ -9,7 +9,6 @@ RUN apt-get install -y git-core
 RUN apt-get install -y wget
 RUN apt-get install -y build-essential
 RUN apt-get install -y pkg-config
-RUN apt-get install -y cmake
 RUN apt-get install -y check
 RUN apt-get install -y zsh
 
@@ -21,4 +20,4 @@ RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
 # Make dev-home
 RUN mkdir /home/dev
 
-CMD ["zsh", "cd /home/dev", "rm -rf RomanNumeralKataC"]
+CMD ["zsh"]
