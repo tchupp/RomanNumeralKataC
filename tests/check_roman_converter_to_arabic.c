@@ -54,6 +54,36 @@ START_TEST(test_double_numerals)
     }
 END_TEST
 
+START_TEST(test_numerals_can_be_counted_multiple_times)
+    {
+        unsigned int result;
+
+        result = convert_to_arabic("MM");
+        ck_assert_int_eq(2000, result);
+
+        result = convert_to_arabic("MMM");
+        ck_assert_int_eq(3000, result);
+
+        result = convert_to_arabic("CC");
+        ck_assert_int_eq(200, result);
+
+        result = convert_to_arabic("CCC");
+        ck_assert_int_eq(300, result);
+
+        result = convert_to_arabic("XX");
+        ck_assert_int_eq(20, result);
+
+        result = convert_to_arabic("XXX");
+        ck_assert_int_eq(30, result);
+
+        result = convert_to_arabic("II");
+        ck_assert_int_eq(2, result);
+
+        result = convert_to_arabic("III");
+        ck_assert_int_eq(3, result);
+    }
+END_TEST
+
 Suite *roman_converter_to_arabic_suite() {
     Suite *suite;
     TCase *tcase_core;
@@ -64,6 +94,7 @@ Suite *roman_converter_to_arabic_suite() {
 
     tcase_add_test(tcase_core, test_single_numerals);
     tcase_add_test(tcase_core, test_double_numerals);
+    tcase_add_test(tcase_core, test_numerals_can_be_counted_multiple_times);
 
     suite_add_tcase(suite, tcase_core);
 
