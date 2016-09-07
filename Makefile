@@ -1,3 +1,4 @@
+CURRENT_DIR = $(shell basename $(CURDIR))
 IMAGE_NAME = roman-kata
 CONTAINER_NAME = ubuntu-c
 
@@ -44,7 +45,7 @@ clean: stop
 
 
 test:
-	@docker exec $(IMAGE_NAME) rm -rf /home/dev/RomanNumeralKataC
-	@docker cp ../RomanNumeralKataC $(IMAGE_NAME):/home/dev/
-	@docker exec $(IMAGE_NAME) make -C /home/dev/RomanNumeralKataC/make
+	@docker exec $(IMAGE_NAME) rm -rf /home/dev/$(CURRENT_DIR)
+	@docker cp ../$(CURRENT_DIR) $(IMAGE_NAME):/home/dev/
+	@docker exec $(IMAGE_NAME) make -C /home/dev/$(CURRENT_DIR)/make
 .PHONY : test
