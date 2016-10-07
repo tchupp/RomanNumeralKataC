@@ -12,5 +12,4 @@ RUN apt-get install -y check
 
 # Make dev-home
 RUN mkdir /home/dev
-
-#CMD ["zsh"]
+WORKDIR /home/dev

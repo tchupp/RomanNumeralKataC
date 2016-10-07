@@ -20,7 +20,8 @@ build:
 
 
 run:
-	@docker run -it --name=$(IMAGE_NAME) -d $(CONTAINER_NAME)
+	@echo $(CURDIR)
+	@docker run -it --name=$(IMAGE_NAME) -d -v $(CURDIR):/home/dev/$(CURRENT_DIR) $(CONTAINER_NAME)
 .PHONY : run
 
 
@@ -45,7 +46,5 @@ clean: stop
 
 
 test:
-	@docker exec $(IMAGE_NAME) rm -rf /home/dev/$(CURRENT_DIR)
-	@docker cp ../$(CURRENT_DIR) $(IMAGE_NAME):/home/dev/
 	@docker exec $(IMAGE_NAME) make -C /home/dev/$(CURRENT_DIR)/make
 .PHONY : test
