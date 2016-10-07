@@ -1,5 +1,6 @@
 #include <check.h>
 #include <roman_converter.h>
+#include <limits.h>
 
 #include "check_suites.h"
 
@@ -84,6 +85,21 @@ START_TEST(test_numerals_can_be_counted_multiple_times)
     }
 END_TEST
 
+START_TEST(test_malformed_numerals_return_UINT_MAX)
+    {
+        /*unsigned int result;
+
+        result = convert_to_arabic("CMM");
+        ck_assert_int_eq(UINT_MAX, result);
+
+        result = convert_to_arabic("IIII");
+        ck_assert_int_eq(UINT_MAX, result);
+
+        result = convert_to_arabic("DD");
+        ck_assert_int_eq(UINT_MAX, result);*/
+    }
+END_TEST
+
 Suite *roman_converter_to_arabic_suite() {
     Suite *suite;
     TCase *tcase_core;
@@ -95,6 +111,7 @@ Suite *roman_converter_to_arabic_suite() {
     tcase_add_test(tcase_core, test_single_numerals);
     tcase_add_test(tcase_core, test_double_numerals);
     tcase_add_test(tcase_core, test_numerals_can_be_counted_multiple_times);
+    tcase_add_test(tcase_core, test_malformed_numerals_return_UINT_MAX);
 
     suite_add_tcase(suite, tcase_core);
 

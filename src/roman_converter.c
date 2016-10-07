@@ -1,6 +1,7 @@
 #define ARRAY_LEN(array) (sizeof(array) / sizeof(array[0]))
 
 #include <string.h>
+#include <stdio.h>
 
 #include "roman_converter.h"
 #include "roman_numeral_pair.h"
@@ -52,7 +53,10 @@ unsigned int convert_to_arabic(char *value) {
     pairs[11] = new_rn_pair(4, "IV");
     pairs[12] = new_rn_pair(1, "I");
 
-    unsigned int result = 0;
+    int result_array[strlen(value)], result_pos = 0;
+    memset(result_array, 0, sizeof(result_array));
+
+    printf("Result array: %zu\n", strlen(value));
 
     int i;
     for (i = 0; i < ARRAY_LEN(pairs); i++) {
@@ -60,12 +64,22 @@ unsigned int convert_to_arabic(char *value) {
         char *roman = get_roman(pairs[i]);
 
         while (strncmp(roman, value, strlen(roman)) == 0) {
-            result += arabic;
+            printf("value: %s\n", value);
+            printf("roman: %s\n", roman);
+            result_array[result_pos++] = arabic;
             value += strlen(roman);
         }
 
         free_rn_pair(pairs[i]);
     }
+    unsigned int result = 0;
+
+    for (i = 0; i < ARRAY_LEN(result_array); i++) {
+        printf("%d", result);
+        result += result_array[i];
+        printf(" + %d = %d\n", result_array[i], result);
+    }
+    printf("\n");
 
     return result;
 }
