@@ -11,10 +11,17 @@ tests/check_roman_converter_to_roman.c.o: ../tests/check_roman_converter_to_roma
 tests/check_roman_converter_to_arabic.c.o: ../tests/check_roman_converter_to_arabic.c
 	$(CC) $(C_FLAGS) $(C_INCLUDES) -o $@ -c $^
 
+
+tests/check_roman_converter_utils.c.o: ../tests/check_roman_converter_utils.c
+	$(CC) $(C_FLAGS) $(C_INCLUDES) -o $@ -c $^
+
+
 tests/check_roman_numeral_pair.c.o: ../tests/check_roman_numeral_pair.c
 	$(CC) $(C_FLAGS) $(C_INCLUDES) -o $@ -c $^
 
+
 tests/test_roman: tests/check_main.c.o
+tests/test_roman: tests/check_roman_converter_utils.c.o
 tests/test_roman: tests/check_roman_converter_to_roman.c.o
 tests/test_roman: tests/check_roman_converter_to_arabic.c.o
 tests/test_roman: tests/check_roman_numeral_pair.c.o
