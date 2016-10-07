@@ -8,7 +8,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y build-essential
 RUN apt-get install -y pkg-config
 RUN apt-get install -y check
-RUN apt-get install -y valgrind
+#RUN apt-get install -y valgrind
 
 # Make dev-home
 RUN mkdir /home/dev
